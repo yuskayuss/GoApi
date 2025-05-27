@@ -13,6 +13,7 @@ func main() {
 	config.DB.AutoMigrate(&models.User{})
 
 	routes.UserRoute(r)
+	routes.AuthRoute(r)
 
 	r.Run(":8080")
 }
