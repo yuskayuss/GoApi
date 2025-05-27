@@ -20,6 +20,9 @@ func UserRoute(r *gin.Engine) {
 func AuthRoute(r *gin.Engine) {
 	auth := r.Group("/api/auth")
 	{
+		auth.OPTIONS("/login", func(c *gin.Context) {
+			c.AbortWithStatus(204)
+		})
 		auth.POST("/register", controllers.Register)
 		auth.POST("/login", controllers.Login)
 
